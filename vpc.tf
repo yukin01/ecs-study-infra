@@ -18,6 +18,10 @@ resource "aws_vpc" "main" {
   tags = {
     Name = "fargate-study"
   }
+
+  lifecycle {
+    ignore_changes = [tags]
+  }
 }
 
 resource "aws_vpc_dhcp_options" "main" {
@@ -43,6 +47,10 @@ resource "aws_subnet" "private" {
   tags = {
     Name = each.key
   }
+
+  lifecycle {
+    ignore_changes = [tags]
+  }
 }
 
 resource "aws_subnet" "public" {
@@ -53,6 +61,10 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = each.key
+  }
+
+  lifecycle {
+    ignore_changes = [tags]
   }
 }
 
