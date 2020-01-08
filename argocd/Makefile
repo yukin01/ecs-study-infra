@@ -7,3 +7,9 @@ deploy-file:
 
 deploy:
 	kubectl apply -k .
+
+delete-file:
+	kubectl delete -f install.yaml
+
+delete:
+	kubectl delete -k .
