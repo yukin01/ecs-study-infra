@@ -9,4 +9,4 @@
 *.tfvars
 
 # Auto-generated file
-**/install.yaml
+**/.install.yaml
