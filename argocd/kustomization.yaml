@@ -7,3 +7,6 @@ bases:
 
 resources:
 - namespace.yaml
+
+patches:
+- service.yaml
