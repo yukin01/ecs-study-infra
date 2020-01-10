@@ -7,19 +7,19 @@ resource "aws_lb_target_group" "argocd" {
 
 resource "aws_lb_listener_rule" "argocd" {
   listener_arn = aws_lb_listener.eks_https.arn
-  
+
   action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.argocd.arn
   }
 
   condition {
-    field  = "path-pattern"
-    values = ["*"]
+    field = "host-header"
+    values = [var.argocd_domain_name]
   }
 }
 
 resource "aws_autoscaling_attachment" "argocd" {
   autoscaling_group_name = aws_eks_node_group.main.resources[0].autoscaling_groups[0].name
-  alb_target_group_arn = aws_lb_target_group.argocd.arn
+  alb_target_group_arn   = aws_lb_target_group.argocd.arn
 }
