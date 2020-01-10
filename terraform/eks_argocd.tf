@@ -6,7 +6,7 @@ resource "aws_lb_target_group" "argocd" {
 }
 
 resource "aws_lb_listener_rule" "argocd" {
-  listener_arn = aws_lb_listener.https.arn
+  listener_arn = aws_lb_listener.eks_https.arn
   
   action {
     type = "forward"
