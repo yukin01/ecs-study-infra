@@ -11,7 +11,7 @@ resource "aws_lb" "eks" {
   subnets            = [aws_subnet.public["public-a"].id, aws_subnet.public["public-c"].id]
 }
 
-resource "aws_lb_listener" "http" {
+resource "aws_lb_listener" "eks_http" {
   load_balancer_arn = aws_lb.eks.arn
   port              = "80"
   protocol          = "HTTP"
@@ -27,7 +27,7 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-resource "aws_lb_listener" "https" {
+resource "aws_lb_listener" "eks_https" {
   load_balancer_arn = aws_lb.eks.arn
   port              = "443"
   protocol          = "HTTPS"
