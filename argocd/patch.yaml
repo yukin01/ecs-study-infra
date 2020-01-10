@@ -27,3 +27,20 @@ spec:
         - --staticassets
         - /shared/app
         - --insecure
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  repositories: |
+    - url: https://github.com/yukin01/fargate-study-infra
+  repository.credentials: |
+    - url: https://github.com/yukin01
+      passwordSecret:
+        name: argocd-github-secret
+        key: password
+      usernameSecret:
+        name: argocd-github-secret
+        key: username

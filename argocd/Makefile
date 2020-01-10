@@ -1,5 +1,6 @@
 build:
-	rm .install.yaml
+	touch .install.yaml
+	mv -f .install.yaml .install.old.yaml
 	kubectl kustomize . > .install.yaml
 
 deploy-file:
@@ -19,3 +20,6 @@ get-pod-name:
 
 get-server-dns:
 	kubectl get svc -n argocd -l app.kubernetes.io/name=argocd-server -o json | jq -r '.items[0].status.loadBalancer.ingress[0].hostname'
+
+create-secret:
+	kubectl create secret generic argocd-github-secret --from-env-file .env -n argocd

@@ -10,3 +10,6 @@
 
 # Auto-generated file
 **/.*.yaml
+
+# env file
+.env
