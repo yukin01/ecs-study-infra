@@ -9,4 +9,4 @@ resources:
 - namespace.yaml
 
 patches:
-- service.yaml
+- patch.yaml
