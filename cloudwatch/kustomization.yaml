@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: amazon-cloudwatch
+
+# https://github.com/aws-samples/amazon-cloudwatch-container-insights/tree/k8s/1.1.0
+resources:
+- cloudwatch-namespace.yaml
+- cwagent-kubernetes-monitoring/cwagent-serviceaccount.yaml
+- cwagent-kubernetes-monitoring/cwagent-configmap.yaml
+- cwagent-kubernetes-monitoring/cwagent-daemonset.yaml

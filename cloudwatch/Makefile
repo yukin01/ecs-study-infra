@@ -2,7 +2,7 @@ MANIFEST_URL=https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-con
 CLUSTER_NAME=$(PREFIX)-cluster
 REGION_NAME=ap-northeast-1
 
-apply:
+quickstart-apply:
 	curl $(MANIFEST_URL) | sed "s/{{cluster_name}}/$(CLUSTER_NAME)/;s/{{region_name}}/$(REGION_NAME)/" | kubectl apply -f -
 
 delete:
