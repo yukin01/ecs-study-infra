@@ -25,7 +25,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v0.12-debian-stackdriver
+        image: yukin01/fluentd-kubernetes-daemonset:v1.6.3-debian-stackdriver-0.1
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: "/etc/google/auth/google-application-credentials.json"
